@@ -39,6 +39,14 @@ abstract class AmberflutterPlatform extends PlatformInterface {
     throw UnimplementedError('signEvent() has not been implemented.');
   }
 
+  Future<Map<dynamic, dynamic>> signMessage(
+    String currentUser,
+    String content,
+    String? id,
+  ) {
+    throw UnimplementedError('signMessage() has not been implemented.');
+  }
+
   Future<Map<dynamic, dynamic>> nip04Encrypt(
     String plaintext,
     String currentUser,

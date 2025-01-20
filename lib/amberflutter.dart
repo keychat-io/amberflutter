@@ -28,6 +28,18 @@ class Amberflutter {
     );
   }
 
+  Future<Map<dynamic, dynamic>> signMessage({
+    required String currentUser,
+    required String content,
+    String? id,
+  }) {
+    return AmberflutterPlatform.instance.signMessage(
+      currentUser,
+      content,
+      id,
+    );
+  }
+
   Future<Map<dynamic, dynamic>> nip04Encrypt({
     required String plaintext,
     required String currentUser,

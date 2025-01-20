@@ -11,13 +11,12 @@ class MethodChannelAmberflutter extends AmberflutterPlatform {
   final methodChannel =
       const MethodChannel('com.sebdeveloper6952.amberflutter');
 
-
   @override
   Future<bool> isAppInstalled() async {
     final data = await methodChannel.invokeMethod<bool>(
       'isAppInstalled',
       {
-      'packageName': 'com.greenart7c3.nostrsigner',
+        'packageName': 'com.greenart7c3.nostrsigner',
       },
     );
 
@@ -54,6 +53,27 @@ class MethodChannelAmberflutter extends AmberflutterPlatform {
       "type": "sign_event",
       "current_user": currentUser,
       "uri_data": eventJson,
+      "id": id,
+    };
+
+    final data = await methodChannel.invokeMethod<Map<dynamic, dynamic>>(
+      'nostrsigner',
+      arguments,
+    );
+
+    return data ?? {};
+  }
+
+  @override
+  Future<Map<dynamic, dynamic>> signMessage(
+    String currentUser,
+    String content,
+    String? id,
+  ) async {
+    final arguments = {
+      "type": "sign_message",
+      "current_user": currentUser,
+      "uri_data": content,
       "id": id,
     };
 
