@@ -68,7 +68,7 @@ class AmberflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugi
        _context.contentResolver,
      )
      if (!data.isNullOrEmpty()) {
-       Log.d("onMethodCall", "content resolver got data")
+       Log.d("onMethodCall", "content resolver got $data")
        _result.success(data)
        return
      }
@@ -191,7 +191,7 @@ class AmberflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, Plugi
             val eventJson = it.getString(indexJson)
             dataMap["event"] = eventJson
           }
-
+          Log.d("getDataFromResolver", "dataMap: $dataMap")
           return dataMap
         }
       }
